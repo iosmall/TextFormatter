@@ -7,15 +7,10 @@
 */
 namespace s9e\TextFormatter\Configurator\Helpers;
 
-use RuntimeException;
+use s9e\RegexpBuilder\Builder;
 
 abstract class RegexpBuilder
 {
-	/**
-	* @var CharacterClassBuilder
-	*/
-	protected static $characterClassBuilder;
-
 	/**
 	* Create a regexp pattern that matches a list of words
 	*
@@ -51,6 +46,13 @@ abstract class RegexpBuilder
 			}
 			unset($word);
 		}
+
+		$builder = new Builder([
+			'delimiter' => $options['delimiter']
+		]);
+
+		return $builder->build($words);
+
 
 		// Deduplicate words in advance because some routines such as mergeChains() make assumptions
 		// based on the size of some chains without deduplicating them first

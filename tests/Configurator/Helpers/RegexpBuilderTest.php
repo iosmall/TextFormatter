@@ -28,7 +28,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['FOO', 'foo']) returns '(?>FOO|foo)'
+	* @testdox fromList(['FOO', 'foo']) returns '(?:FOO|foo)'
 	*/
 	public function test_7014556B()
 	{
@@ -84,7 +84,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['apple', 'april']) returns 'ap(?>ple|ril)'
+	* @testdox fromList(['apple', 'april']) returns 'ap(?:ple|ril)'
 	*/
 	public function test_8DCF0241()
 	{
@@ -108,7 +108,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['ax', 'axed']) returns 'ax(?>ed)?'
+	* @testdox fromList(['ax', 'axed']) returns 'ax(?:ed)?'
 	*/
 	public function test_90A63EB3()
 	{
@@ -132,7 +132,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['xy', '^y'], ["specialChars" => ["^" => "^"]]) returns '(?>x|^)y'
+	* @testdox fromList(['xy', '^y'], ["specialChars" => ["^" => "^"]]) returns '(?:x|^)y'
 	*/
 	public function test_87D67074()
 	{
@@ -140,7 +140,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['xy', 'x$'], ["specialChars" => ["$" => "$"]]) returns 'x(?>y|$)'
+	* @testdox fromList(['xy', 'x$'], ["specialChars" => ["$" => "$"]]) returns 'x(?:y|$)'
 	*/
 	public function test_D9422070()
 	{
@@ -148,7 +148,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['foo', 'bar']) returns '(?>bar|foo)'
+	* @testdox fromList(['foo', 'bar']) returns '(?:bar|foo)'
 	*/
 	public function test_DE674C00()
 	{
@@ -156,7 +156,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['*foo', '\\bar'], ["useLookahead" => true]) returns '(?=[*\\\\])(?>\\*foo|\\\\bar)'
+	* @testdox fromList(['*foo', '\\bar'], ["useLookahead" => true]) returns '(?=[*\\\\])(?:\\*foo|\\\\bar)'
 	*/
 	public function test_632A26D()
 	{
@@ -236,7 +236,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['boost', 'best']) returns 'b(?>e|oo)st'
+	* @testdox fromList(['boost', 'best']) returns 'b(?:e|oo)st'
 	*/
 	public function test_D2FB0462()
 	{
@@ -244,7 +244,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['boost', 'bst']) returns 'b(?>oo)?st'
+	* @testdox fromList(['boost', 'bst']) returns 'b(?:oo)?st'
 	*/
 	public function test_C36BA6A5()
 	{
@@ -252,7 +252,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['best', 'boost', 'bust']) returns 'b(?>[eu]|oo)st'
+	* @testdox fromList(['best', 'boost', 'bust']) returns 'b(?:[eu]|oo)st'
 	*/
 	public function test_29BA04C0()
 	{
@@ -260,7 +260,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['boost', 'bst', 'cool']) returns '(?:b(?>oo)?st|cool)'
+	* @testdox fromList(['boost', 'bst', 'cool']) returns '(?:b(?:oo)?st|cool)'
 	*/
 	public function test_4473374B()
 	{
@@ -268,7 +268,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['boost', 'bst', 'cost']) returns '(?:b(?>oo)?|co)st'
+	* @testdox fromList(['boost', 'bst', 'cost']) returns '(?:b(?:oo)?|co)st'
 	*/
 	public function test_B16EB7C4()
 	{
@@ -292,7 +292,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['aaax', 'aaay', 'bbaax', 'bbaay']) returns '(?>a|bb)aa[xy]'
+	* @testdox fromList(['aaax', 'aaay', 'bbaax', 'bbaay']) returns '(?:a|bb)aa[xy]'
 	*/
 	public function test_A6EF6E21()
 	{
@@ -308,7 +308,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['abx', 'aby', 'cdx', 'cdy']) returns '(?>ab|cd)[xy]'
+	* @testdox fromList(['abx', 'aby', 'cdx', 'cdy']) returns '(?:ab|cd)[xy]'
 	*/
 	public function test_127E4B6E()
 	{
@@ -316,7 +316,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['axx', 'ayy', 'bbxx', 'bbyy']) returns '(?>a|bb)(?>xx|yy)'
+	* @testdox fromList(['axx', 'ayy', 'bbxx', 'bbyy']) returns '(?:a|bb)(?:xx|yy)'
 	*/
 	public function test_CDAB507A()
 	{
@@ -324,7 +324,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['axx', 'ayy', 'bbxx', 'bbyy', 'c']) returns '(?>c|(?>a|bb)(?>xx|yy))'
+	* @testdox fromList(['axx', 'ayy', 'bbxx', 'bbyy', 'c']) returns '(?:c|(?:a|bb)(?:xx|yy))'
 	*/
 	public function test_E3951234()
 	{
@@ -332,7 +332,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['axx', 'ayy', 'azz', 'bbxx', 'bbyy', 'c']) returns '(?>c|a(?>xx|yy|zz)|bb(?>xx|yy))'
+	* @testdox fromList(['axx', 'ayy', 'azz', 'bbxx', 'bbyy', 'c']) returns '(?:c|a(?:xx|yy|zz)|bb(?:xx|yy))'
 	*/
 	public function test_91AF5825()
 	{
@@ -340,7 +340,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['ac', 'af', 'bbc', 'bbf', 'c']) returns '(?>c|a[cf]|bb[cf])'
+	* @testdox fromList(['ac', 'af', 'bbc', 'bbf', 'c']) returns '(?:c|a[cf]|bb[cf])'
 	*/
 	public function test_5E3E54F3()
 	{
@@ -348,7 +348,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['^example.org$', '.example.org$', '^localhost$', '.localhost$'], ["specialChars" => ["^" => "^", "$" => "$"]]) returns '(?>\\.|^)(?>example\\.org|localhost)$'
+	* @testdox fromList(['^example.org$', '.example.org$', '^localhost$', '.localhost$'], ["specialChars" => ["^" => "^", "$" => "$"]]) returns '(?:\\.|^)(?:example\\.org|localhost)$'
 	*/
 	public function test_553F87F8()
 	{
@@ -356,7 +356,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['xixix', 'xoxox']) returns 'x(?>ixi|oxo)x'
+	* @testdox fromList(['xixix', 'xoxox']) returns 'x(?:ixi|oxo)x'
 	*/
 	public function test_3B388A82()
 	{
@@ -372,7 +372,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['afoo', 'abar', 'bbfoo', 'bbbar', 'a', 'bb']) returns '(?>a|bb)(?>bar|foo)?'
+	* @testdox fromList(['afoo', 'abar', 'bbfoo', 'bbbar', 'a', 'bb']) returns '(?:a|bb)(?:bar|foo)?'
 	*/
 	public function test_C9877394()
 	{
@@ -388,7 +388,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['ax', 'ay', 'bx', 'by', 'c']) returns '(?>c|[ab][xy])'
+	* @testdox fromList(['ax', 'ay', 'bx', 'by', 'c']) returns '(?:c|[ab][xy])'
 	*/
 	public function test_BCD28919()
 	{
@@ -412,7 +412,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['ax', 'ay', 'bbx', 'bby', 'c']) returns '(?>c|a[xy]|bb[xy])'
+	* @testdox fromList(['ax', 'ay', 'bbx', 'bby', 'c']) returns '(?:c|a[xy]|bb[xy])'
 	*/
 	public function test_1A58B8A1()
 	{
@@ -420,7 +420,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['ax', 'ay', 'bx', 'by', 'c', 'ddx', 'ddy']) returns '(?>c|dd[xy]|[ab][xy])'
+	* @testdox fromList(['ax', 'ay', 'bx', 'by', 'c', 'ddx', 'ddy']) returns '(?:c|dd[xy]|[ab][xy])'
 	*/
 	public function test_28AB5133()
 	{
@@ -468,7 +468,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['foo', 'bar', 'y', 'z']) returns '(?>[yz]|bar|foo)'
+	* @testdox fromList(['foo', 'bar', 'y', 'z']) returns '(?:[yz]|bar|foo)'
 	*/
 	public function test_A28B3A84()
 	{
@@ -476,7 +476,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['foo', 'bar', 'baz', 'y', 'z']) returns '(?>[yz]|ba[rz]|foo)'
+	* @testdox fromList(['foo', 'bar', 'baz', 'y', 'z']) returns '(?:[yz]|ba[rz]|foo)'
 	*/
 	public function test_2F461F5()
 	{
@@ -484,7 +484,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['a', 'aacc', 'aadd', 'bbcc', 'bbdd']) returns '(?:a(?>a(?>cc|dd))?|bb(?>cc|dd))'
+	* @testdox fromList(['a', 'aacc', 'aadd', 'bbcc', 'bbdd']) returns '(?:a(?:a(?:cc|dd))?|bb(?:cc|dd))'
 	*/
 	public function test_7C3B11DD()
 	{
@@ -492,7 +492,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['aa', 'bb', 'aacc', 'aadd', 'bbcc', 'bbdd']) returns '(?>aa|bb)(?>cc|dd)?'
+	* @testdox fromList(['aa', 'bb', 'aacc', 'aadd', 'bbcc', 'bbdd']) returns '(?:aa|bb)(?:cc|dd)?'
 	*/
 	public function test_3F4CA3E0()
 	{
@@ -500,7 +500,7 @@ class RegexpBuilderTest extends Test
 	}
 
 	/**
-	* @testdox fromList(['aa', 'bb', 'aaccxx', 'aaddxx', 'bbccxx', 'bbddxx', 'aaccyy', 'aaddyy', 'bbccyy', 'bbddyy']) returns '(?>aa|bb)(?>(?>cc|dd)(?>xx|yy))?'
+	* @testdox fromList(['aa', 'bb', 'aaccxx', 'aaddxx', 'bbccxx', 'bbddxx', 'aaccyy', 'aaddyy', 'bbccyy', 'bbddyy']) returns '(?:aa|bb)(?:(?:cc|dd)(?:xx|yy))?'
 	*/
 	public function test_9D02B595()
 	{
@@ -1029,7 +1029,7 @@ class RegexpBuilderTest extends Test
 				['foo', 'foo']
 			],
 			[
-				'(?>FOO|foo)',
+				'(?:FOO|foo)',
 				['FOO', 'foo']
 			],
 			[
@@ -1060,7 +1060,7 @@ class RegexpBuilderTest extends Test
 				['delimiter' => '#']
 			],
 			[
-				'ap(?>ple|ril)',
+				'ap(?:ple|ril)',
 				['apple', 'april']
 			],
 			[
@@ -1072,7 +1072,7 @@ class RegexpBuilderTest extends Test
 				['foo', 'fool']
 			],
 			[
-				'ax(?>ed)?',
+				'ax(?:ed)?',
 				['ax', 'axed']
 			],
 			[
@@ -1084,21 +1084,21 @@ class RegexpBuilderTest extends Test
 				[':)', ':(', ':]', ':[', ':|', ':/', ':\\']
 			],
 			[
-				'(?>x|^)y',
+				'(?:x|^)y',
 				['xy', '^y'],
 				['specialChars' => ['^' => '^']]
 			],
 			[
-				'x(?>y|$)',
+				'x(?:y|$)',
 				['xy', 'x$'],
 				['specialChars' => ['$' => '$']]
 			],
 			[
-				'(?>bar|foo)',
+				'(?:bar|foo)',
 				['foo', 'bar']
 			],
 			[
-				'(?=[*\\\\])(?>\\*foo|\\\\bar)',
+				'(?=[*\\\\])(?:\\*foo|\\\\bar)',
 				['*foo', '\\bar'],
 				['useLookahead' => true]
 			],
@@ -1144,23 +1144,23 @@ class RegexpBuilderTest extends Test
 				['boast', 'boost', 'bost']
 			],
 			[
-				'b(?>e|oo)st',
+				'b(?:e|oo)st',
 				['boost', 'best']
 			],
 			[
-				'b(?>oo)?st',
+				'b(?:oo)?st',
 				['boost', 'bst']
 			],
 			[
-				'b(?>[eu]|oo)st',
+				'b(?:[eu]|oo)st',
 				['best', 'boost', 'bust']
 			],
 			[
-				'(?:b(?>oo)?st|cool)',
+				'(?:b(?:oo)?st|cool)',
 				['boost', 'bst', 'cool']
 			],
 			[
-				'(?:b(?>oo)?|co)st',
+				'(?:b(?:oo)?|co)st',
 				['boost', 'bst', 'cost']
 			],
 			[
@@ -1172,7 +1172,7 @@ class RegexpBuilderTest extends Test
 				['aaax', 'aaay', 'baax', 'baay']
 			],
 			[
-				'(?>a|bb)aa[xy]',
+				'(?:a|bb)aa[xy]',
 				['aaax', 'aaay', 'bbaax', 'bbaay']
 			],
 			[
@@ -1180,37 +1180,37 @@ class RegexpBuilderTest extends Test
 				['aaax', 'aaay', 'aax', 'aay']
 			],
 			[
-				'(?>ab|cd)[xy]',
+				'(?:ab|cd)[xy]',
 				['abx', 'aby', 'cdx', 'cdy']
 			],
 			[
-				'(?>a|bb)(?>xx|yy)',
+				'(?:a|bb)(?:xx|yy)',
 				['axx', 'ayy', 'bbxx', 'bbyy']
 			],
 			[
-				'(?>c|(?>a|bb)(?>xx|yy))',
+				'(?:c|(?:a|bb)(?:xx|yy))',
 				['axx', 'ayy', 'bbxx', 'bbyy', 'c']
 			],
 			[
 				// Ensure it doesn't become (?:c|(?:a|bb)(?:xx|yy)|azz) even though it would be
 				// shorter, because having fewer alternations at the top level is more important
-				'(?>c|a(?>xx|yy|zz)|bb(?>xx|yy))',
+				'(?:c|a(?:xx|yy|zz)|bb(?:xx|yy))',
 				['axx', 'ayy', 'azz', 'bbxx', 'bbyy', 'c']
 			],
 			[
 				// We don't merge "ac", "af", "bbc" and "bbf" tails because the result
 				// (?:c|(?:a|bb)[cf]) is neither more performant nor shorter
-				'(?>c|a[cf]|bb[cf])',
+				'(?:c|a[cf]|bb[cf])',
 				['ac', 'af', 'bbc', 'bbf', 'c']
 			],
 			[
 				// Typical regexp used in UrlConfig for matching hostnames and subdomains
-				'(?>\\.|^)(?>example\\.org|localhost)$',
+				'(?:\\.|^)(?:example\\.org|localhost)$',
 				['^example.org$', '.example.org$', '^localhost$', '.localhost$'],
 				['specialChars' => ['^' => '^', '$' => '$']]
 			],
 			[
-				'x(?>ixi|oxo)x',
+				'x(?:ixi|oxo)x',
 				['xixix', 'xoxox']
 			],
 			[
@@ -1218,7 +1218,7 @@ class RegexpBuilderTest extends Test
 				['xixix', 'xixox', 'xoxox', 'xoxix']
 			],
 			[
-				'(?>a|bb)(?>bar|foo)?',
+				'(?:a|bb)(?:bar|foo)?',
 				['afoo', 'abar', 'bbfoo', 'bbbar', 'a', 'bb']
 			],
 			[
@@ -1226,7 +1226,7 @@ class RegexpBuilderTest extends Test
 				['ax', 'ay', 'bx', 'by']
 			],
 			[
-				'(?>c|[ab][xy])',
+				'(?:c|[ab][xy])',
 				['ax', 'ay', 'bx', 'by', 'c']
 			],
 			[
@@ -1239,11 +1239,11 @@ class RegexpBuilderTest extends Test
 			],
 			// Ensure that merging tails does not create subpatterns
 			[
-				'(?>c|a[xy]|bb[xy])',
+				'(?:c|a[xy]|bb[xy])',
 				['ax', 'ay', 'bbx', 'bby', 'c']
 			],
 			[
-				'(?>c|dd[xy]|[ab][xy])',
+				'(?:c|dd[xy]|[ab][xy])',
 				['ax', 'ay', 'bx', 'by', 'c', 'ddx', 'ddy']
 			],
 			// Those three only exist to make sure nothing bad happens (e.g. no infinite loop)
@@ -1271,23 +1271,23 @@ class RegexpBuilderTest extends Test
 			],
 			// Ensure that character classes made from single characters appear first in alternation
 			[
-				'(?>[yz]|bar|foo)',
+				'(?:[yz]|bar|foo)',
 				['foo', 'bar', 'y', 'z']
 			],
 			[
-				'(?>[yz]|ba[rz]|foo)',
+				'(?:[yz]|ba[rz]|foo)',
 				['foo', 'bar', 'baz', 'y', 'z']
 			],
 			[
-				'(?:a(?>a(?>cc|dd))?|bb(?>cc|dd))',
+				'(?:a(?:a(?:cc|dd))?|bb(?:cc|dd))',
 				['a', 'aacc', 'aadd', 'bbcc', 'bbdd']
 			],
 			[
-				'(?>aa|bb)(?>cc|dd)?',
+				'(?:aa|bb)(?:cc|dd)?',
 				['aa', 'bb', 'aacc', 'aadd', 'bbcc', 'bbdd']
 			],
 			[
-				'(?>aa|bb)(?>(?>cc|dd)(?>xx|yy))?',
+				'(?:aa|bb)(?:(?:cc|dd)(?:xx|yy))?',
 				[
 					'aa', 'bb',
 					'aaccxx', 'aaddxx', 'bbccxx', 'bbddxx',
