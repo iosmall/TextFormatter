@@ -48,7 +48,10 @@ abstract class RegexpBuilder
 		}
 
 		$builder = new Builder([
-			'delimiter' => $options['delimiter']
+			'delimiter' => $options['delimiter'],
+			'meta'      => $options['specialChars'],
+			'input'     => $options['unicode'] ? 'Utf8' : 'Bytes',
+			'output'    => $options['unicode'] ? 'Utf8' : 'Bytes'
 		]);
 
 		return $builder->build($words);
