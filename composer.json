@@ -10,12 +10,12 @@
 		"php":        ">=5.6.0",
 		"ext-dom":    "*",
 		"ext-filter": "*",
-		"lib-pcre":   ">=7.2"
+		"lib-pcre":   ">=7.2",
+		"s9e/regexp-builder": "1.*"
 	},
 	"require-dev": {
 		"matthiasmullie/minify":       "*",
-		"php-coveralls/php-coveralls": "*",
-		"s9e/regexp-builder":          "1.*"
+		"php-coveralls/php-coveralls": "*"
 	},
 	"suggest": {
 		"ext-curl":      "Improves the performance of the MediaEmbed plugin and some JavaScript minifiers",
