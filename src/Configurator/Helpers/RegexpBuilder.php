@@ -20,11 +20,6 @@ abstract class RegexpBuilder
 	*/
 	public static function fromList(array $words, array $options = [])
 	{
-		if (empty($words))
-		{
-			return '';
-		}
-
 		$options += [
 			'delimiter'       => '/',
 			'caseInsensitive' => false,
@@ -38,11 +33,7 @@ abstract class RegexpBuilder
 		{
 			foreach ($words as &$word)
 			{
-				$word = strtr(
-					$word,
-					'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-					'abcdefghijklmnopqrstuvwxyz'
-				);
+				$word = strtr($word, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz');
 			}
 			unset($word);
 		}
