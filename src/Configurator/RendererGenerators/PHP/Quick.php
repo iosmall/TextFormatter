@@ -418,16 +418,16 @@ class Quick
 			// A comparison between an attribute and a literal string. Rather than unescape the
 			// attribute value, we escape the literal. This applies to comparisons using XPath's
 			// contains() as well (translated to PHP's strpos())
-			'(' . $getAttribute . "===('.*?(?<!\\\\)(?:\\\\\\\\)*'))s"
+			'(' . $getAttribute . "==('.*?(?<!\\\\)(?:\\\\\\\\)*'))s"
 				=> function ($m)
 				{
-					return '$attributes[' . $m[1] . ']===' . htmlspecialchars($m[2], ENT_COMPAT);
+					return '$attributes[' . $m[1] . ']==' . htmlspecialchars($m[2], ENT_COMPAT);
 				},
 
-			"(('.*?(?<!\\\\)(?:\\\\\\\\)*')===" . $getAttribute . ')s'
+			"(('.*?(?<!\\\\)(?:\\\\\\\\)*')==" . $getAttribute . ')s'
 				=> function ($m)
 				{
-					return htmlspecialchars($m[1], ENT_COMPAT) . '===$attributes[' . $m[2] . ']';
+					return htmlspecialchars($m[1], ENT_COMPAT) . '==$attributes[' . $m[2] . ']';
 				},
 
 			'(strpos\\(' . $getAttribute . ",('.*?(?<!\\\\)(?:\\\\\\\\)*')\\)([!=]==(?:0|false)))s"

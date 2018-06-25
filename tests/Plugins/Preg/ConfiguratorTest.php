@@ -242,11 +242,6 @@ class ConfiguratorTest extends Test
 	*/
 	public function testEscapedNumericReference()
 	{
-		if (PCRE_VERSION < 7.2)
-		{
-			$this->markTestSkipped('Requires PCRE 7.2');
-		}
-
 		$tag = $this->configurator->Preg->replace('/([0-9]+),([0-9]+)/', '\\1,\\\\1');
 
 		$this->assertEquals(
@@ -260,11 +255,6 @@ class ConfiguratorTest extends Test
 	*/
 	public function testEscapedBackslashFollowedByNumericReference()
 	{
-		if (PCRE_VERSION < 7.2)
-		{
-			$this->markTestSkipped('Requires PCRE 7.2');
-		}
-
 		$tag = $this->configurator->Preg->replace('/([0-9]+),([0-9]+)/', '\\\\\\1');
 
 		$this->assertEquals(
@@ -278,11 +268,6 @@ class ConfiguratorTest extends Test
 	*/
 	public function testEscapedDollar()
 	{
-		if (PCRE_VERSION < 7.2)
-		{
-			$this->markTestSkipped('Requires PCRE 7.2');
-		}
-
 		$tag = $this->configurator->Preg->replace('/([0-9]+),([0-9]+)/', '$1,\\$1');
 
 		$this->assertEquals(

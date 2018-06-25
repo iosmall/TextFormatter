@@ -180,7 +180,7 @@ class SerializerTest extends Test
 						</case>
 					</switch>
 				</template>',
-				"if(\$node->getAttribute('foo')==='foo'){\$this->out.='foo';}else{\$this->out.='default';}"
+				"if(\$node->getAttribute('foo')=='foo'){\$this->out.='foo';}else{\$this->out.='default';}"
 			],
 			[
 				'<template>
