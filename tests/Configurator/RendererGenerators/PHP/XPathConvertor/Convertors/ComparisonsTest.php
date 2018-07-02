@@ -15,7 +15,7 @@ class ComparisonsTest extends AbstractConvertorTest
 			// Eq
 			[
 				"'x'='y'",
-				"'x'=='y'"
+				"'x'==='y'"
 			],
 			[
 				'1=1',

@@ -51,7 +51,13 @@ class Comparisons extends AbstractConvertor
 	*/
 	public function convertEq($expr1, $operator, $expr2)
 	{
-		return $this->convertComparison($expr1, $operator[0] . '=', $expr2);
+		$operator = $operator[0] . '=';
+		if ($this->runner->getType($expr1) === 'String' && $this->runner->getType($expr2) === 'String')
+		{
+			$operator .= '=';
+		}
+
+		return $this->convertComparison($expr1, $operator, $expr2);
 	}
 
 	/**

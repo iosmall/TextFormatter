@@ -30,7 +30,7 @@ class BooleanFunctionsTest extends AbstractConvertorTest
 			// Not
 			[
 				"not('a'='a')",
-				"!('a'=='a')"
+				"!('a'==='a')"
 			],
 			// NotAttribute
 			[

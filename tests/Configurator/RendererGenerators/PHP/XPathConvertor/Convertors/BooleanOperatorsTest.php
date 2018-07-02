@@ -19,7 +19,7 @@ class BooleanOperatorsTest extends AbstractConvertorTest
 			],
 			[
 				"@tld='es' and boolean(\$AMAZON_ASSOCIATE_TAG_ES)",
-				"\$node->getAttribute('tld')=='es'&&\$this->params['AMAZON_ASSOCIATE_TAG_ES']!==''"
+				"\$node->getAttribute('tld')==='es'&&\$this->params['AMAZON_ASSOCIATE_TAG_ES']!==''"
 			],
 			// BooleanSub
 			[

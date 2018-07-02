@@ -198,23 +198,23 @@ class XPathConvertorTest extends Test
 			],
 			[
 				".='foo'",
-				"\$node->textContent=='foo'"
+				"\$node->textContent==='foo'"
 			],
 			[
 				"@foo='foo'",
-				"\$node->getAttribute('foo')=='foo'"
+				"\$node->getAttribute('foo')==='foo'"
 			],
 			[
 				".='fo\"o'",
-				"\$node->textContent=='fo\"o'"
+				"\$node->textContent==='fo\"o'"
 			],
 			[
 				'.=\'"_"\'',
-				'$node->textContent==\'"_"\''
+				'$node->textContent===\'"_"\''
 			],
 			[
 				".='foo'or.='bar'",
-				"\$node->textContent=='foo'||\$node->textContent=='bar'"
+				"\$node->textContent==='foo'||\$node->textContent==='bar'"
 			],
 			[
 				'.=3',
@@ -234,11 +234,11 @@ class XPathConvertorTest extends Test
 			],
 			[
 				'@foo != @bar',
-				"\$node->getAttribute('foo')!=\$node->getAttribute('bar')"
+				"\$node->getAttribute('foo')!==\$node->getAttribute('bar')"
 			],
 			[
 				'@foo = @bar or @baz',
-				"\$node->getAttribute('foo')==\$node->getAttribute('bar')||\$node->hasAttribute('baz')"
+				"\$node->getAttribute('foo')===\$node->getAttribute('bar')||\$node->hasAttribute('baz')"
 			],
 			[
 				'not(@foo) and @bar',
@@ -250,7 +250,7 @@ class XPathConvertorTest extends Test
 			],
 			[
 				".='x'or.='y'or.='z'",
-				"\$node->textContent=='x'||\$node->textContent=='y'||\$node->textContent=='z'"
+				"\$node->textContent==='x'||\$node->textContent==='y'||\$node->textContent==='z'"
 			],
 			[
 				"@x and @y and @z and @a",
@@ -258,7 +258,7 @@ class XPathConvertorTest extends Test
 			],
 			[
 				"@type='gifv' and @width and @height and @height != 0",
-				"\$node->getAttribute('type')=='gifv'&&\$node->hasAttribute('width')&&\$node->hasAttribute('height')&&\$node->getAttribute('height')!=0"
+				"\$node->getAttribute('type')==='gifv'&&\$node->hasAttribute('width')&&\$node->hasAttribute('height')&&\$node->getAttribute('height')!=0"
 			],
 			[
 				"contains(@foo,'x')",
@@ -282,7 +282,7 @@ class XPathConvertorTest extends Test
 			],
 			[
 				'(@a = @b) or (@b = @c)',
-				"(\$node->getAttribute('a')==\$node->getAttribute('b'))||(\$node->getAttribute('b')==\$node->getAttribute('c'))"
+				"(\$node->getAttribute('a')===\$node->getAttribute('b'))||(\$node->getAttribute('b')===\$node->getAttribute('c'))"
 			],
 			[
 				'ancestor::foo',
@@ -294,11 +294,11 @@ class XPathConvertorTest extends Test
 			],
 			[
 				'@tld="es" and $AMAZON_ASSOCIATE_TAG_ES',
-				"\$node->getAttribute('tld')=='es'&&\$this->params['AMAZON_ASSOCIATE_TAG_ES']!==''"
+				"\$node->getAttribute('tld')==='es'&&\$this->params['AMAZON_ASSOCIATE_TAG_ES']!==''"
 			],
 			[
 				'@tld="es"and$AMAZON_ASSOCIATE_TAG_ES',
-				"\$node->getAttribute('tld')=='es'&&\$this->params['AMAZON_ASSOCIATE_TAG_ES']!==''"
+				"\$node->getAttribute('tld')==='es'&&\$this->params['AMAZON_ASSOCIATE_TAG_ES']!==''"
 			],
 		];
 	}

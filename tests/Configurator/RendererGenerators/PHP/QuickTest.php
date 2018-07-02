@@ -556,7 +556,7 @@ class QuickTest extends Test
 						</xsl:otherwise>
 					</xsl:choose>'
 				),
-				[['php', '$textContent=$this->getQuickTextContent($xml);if($textContent==\':)\'){$html.=\'<img src="happy.png">\';}else{$html.=htmlspecialchars($textContent,0);}']]
+				[['php', '$textContent=$this->getQuickTextContent($xml);if($textContent===\':)\'){$html.=\'<img src="happy.png">\';}else{$html.=htmlspecialchars($textContent,0);}']]
 			],
 			[
 				'<div><xsl:value-of select="@foo"/><xsl:apply-templates/></div>',
@@ -666,11 +666,11 @@ class QuickTest extends Test
 			],
 			[
 				['X' => '<xsl:if test="@x=\'&quot;&lt;&gt;\'">x</xsl:if>'],
-				"if(\$attributes['x']=='&quot;&lt;&gt;'){\$html.='x';}"
+				"if(\$attributes['x']==='&quot;&lt;&gt;'){\$html.='x';}"
 			],
 			[
 				['X' => '<xsl:if test="\'&quot;&lt;&gt;\'=@x">x</xsl:if>'],
-				"if('&quot;&lt;&gt;'==\$attributes['x']){\$html.='x';}"
+				"if('&quot;&lt;&gt;'===\$attributes['x']){\$html.='x';}"
 			],
 			[
 				['X' => '<xsl:if test="@x=1">x</xsl:if>'],
@@ -690,7 +690,7 @@ class QuickTest extends Test
 			],
 			[
 				['X' => '<xsl:if test="@x1=@x2">x</xsl:if>'],
-				"if(\$attributes['x1']==\$attributes['x2']){\$html.='x';}"
+				"if(\$attributes['x1']===\$attributes['x2']){\$html.='x';}"
 			],
 			[
 				['X' => '<xsl:if test="contains(@x,\'&quot;\')">x</xsl:if>'],
