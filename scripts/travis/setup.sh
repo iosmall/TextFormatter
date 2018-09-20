@@ -19,7 +19,7 @@ echo "Installing Composer dependencies"
 
 # Install Closure Compiler
 echo "Installing Closure Compiler"
-./installClosureCompiler.sh >/dev/null 2>&1 &
+./installClosureCompiler.sh
 
 # The cache dir lets the MediaEmbed plugin cache scraped content
 mkdir ../../tests/.cache
