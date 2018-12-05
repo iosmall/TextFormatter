@@ -492,7 +492,7 @@ class QuickTest extends Test
 					[
 						'dynamic',
 						[
-							'(^[^ ]+(?> (?!(?:height|url|width)=)[^=]+="[^"]*")*(?> height="([^"]*)")?(?> (?!(?>url|width)=)[^=]+="[^"]*")*(?> url="([^"]*)")?(?> (?!width=)[^=]+="[^"]*")*(?> width="([^"]*)")?.*)s',
+							'(^[^ ]+(?> (?!(?:height|url|width)=)[^=]+="[^"]*")*(?> height="([^"]*)")?(?> (?!(?:url|width)=)[^=]+="[^"]*")*(?> url="([^"]*)")?(?> (?!width=)[^=]+="[^"]*")*(?> width="([^"]*)")?.*)s',
 							'<object width="$3" height="$1"><param name="movie" value="$2"></object>'
 						]
 					]
