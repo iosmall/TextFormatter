@@ -11,7 +11,7 @@
 		"ext-dom":    "*",
 		"ext-filter": "*",
 		"lib-pcre":   ">=7.2",
-		"s9e/regexp-builder": "1.*"
+		"s9e/regexp-builder": "^1.4"
 	},
 	"require-dev": {
 		"matthiasmullie/minify":       "*",
