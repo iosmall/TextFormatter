@@ -1,3 +1,5 @@
 #!/bin/bash
 
-ls -l /usr/bin
+which js
+which js17
+which js52
