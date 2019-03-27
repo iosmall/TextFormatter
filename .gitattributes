@@ -9,6 +9,7 @@
 /phpunit.xml    export-ignore
 /scripts        export-ignore
 /src/Configurator/JavaScript/functions     export-ignore
+/src/Plugins/Litedown/Regexps.md           export-ignore
 /src/Plugins/MediaEmbed/Configurator/sites export-ignore
 /tests          export-ignore
 tests          export-ignore
